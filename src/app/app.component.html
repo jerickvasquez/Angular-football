@@ -1,1 +1,41 @@
-<h1>Hello World</h1>
+<div class="container">
+  <h1>Confenrencias de la NCCA</h1>
+  <input
+    type="text"
+    class="form-control bg-dark text-light border-0 my-4 text-center rounded-0"
+    (keyup)="searchConference()"
+    [(ngModel)]="searchText"
+    placeholder="Buscar conferencia"
+  />
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th *ngFor="let title of titles">
+          {{ title }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conference of filterConferences; let i = index">
+        <td class="text-muted">
+          {{ i + 1 }}
+        </td>
+        <td>
+          <span class="ms-2">
+            {{ conference.name }}
+          </span>
+        </td>
+        <td>
+          {{ conference.short_name }}
+        </td>
+        <td>
+          {{ conference.abbreviation }}
+        </td>
+        <td>
+          {{ conference.classification }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

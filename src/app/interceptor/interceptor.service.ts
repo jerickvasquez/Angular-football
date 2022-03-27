@@ -21,7 +21,6 @@ export class MyInterceptor implements HttpInterceptor {
           .set('Authorization', `Bearer ${this.apiKey}`),
       });
     }
-    console.log(formattedRequest);
     return next.handle(formattedRequest);
   }
 }
